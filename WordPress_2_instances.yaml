@@ -12,7 +12,6 @@ parameters:
   key_name:
     type: string
     description : Name of a KeyPair to enable SSH access to the instance
-    default: test_key
 
   instance_type:
     type: string
@@ -35,7 +34,6 @@ parameters:
     type: string
     description: >
       ID or name of public network for which floating IP addresses will be allocated
-    default: public
 
   private_net_name:
     type: string
@@ -276,4 +274,4 @@ outputs:
       str_replace:
         template: http://host/wordpress
         params:
-          host: { get_attr: [WebServer, networks, private, 0] }
+          host: { get_attr: [web_server_floating_ip, floating_ip_address] }
