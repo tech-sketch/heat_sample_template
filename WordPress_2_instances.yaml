@@ -193,6 +193,7 @@ resources:
           template: |
             #!/bin/bash -v
 
+            yum -y clean all
             yum -y install mariadb mariadb-server
             touch /var/log/mariadb/mariadb.log
             chown mysql.mysql /var/log/mariadb/mariadb.log
@@ -243,6 +244,7 @@ resources:
           template: |
             #!/bin/bash -v
 
+            yum -y clean all
             yum -y install httpd wordpress
 
             sed -i "/Deny from All/d" /etc/httpd/conf.d/wordpress.conf
